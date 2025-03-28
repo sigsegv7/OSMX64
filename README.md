@@ -25,7 +25,44 @@ Only accessed by the CPU for certain instructions. Cannot be directly read/writt
 | `rp`  | 64 bits | Return pointer for branches |
 | `ins` | 64 bits | Current instruction at `pc` |
 
+## Special Registers
+
+OSMX64 provides "special" control registers that may vary depending on the chip
+revision. These registers typically include chip-specific mode/control bits to
+configure the processor for certain modes of operations, etc. These registers
+cannot be accessed via the "mov" instruction and instead rely on independent wrs/rrs
+(i.e., special register write / special register read) instructions.
+
+### Common Special Registers
+
+| Name      | Size    | Purpose                     |
+| --------- | ------- | --------------------------- |
+| `SR_STATE`| 64 bits | Processor state bits        |
+
+
+### SR\_STATE
+
+| Bit  | Meaning               | Purpose
+|------|---------------------- | ---------------------- |
+| 0    | Reserved              | Must be zero           |
+| 1    | Supervisor            | Supervisor mode enable |
+| 2-31 | Reserved (must be 0)  | Must be zero           |
+
+
+
 ## Instructions
+
+
+### Special Register Access
+
+Special registers are identified with a 16-bit Special Register ID (SRID)
+and can be accessed through two special instructions.
+
+| Mnemonic                         | Effect                  |
+| -------------------------------- | ----------------------- |
+| `wrs` srid: r/imm, val: r        | `SREGS[srid]` = `val`   |
+| `rrs` dest: r, srid: r/imm       | `dest` = `SREGS[srid]`  |
+
 
 ### Bitwise Instructions
 
