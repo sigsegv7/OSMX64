@@ -168,8 +168,8 @@ Control flow instructions are used to control which instructions the CPU execute
 | Mnemonic                               | Effect                                          |
 | -------------------------------------- | ----------------------------------------------- |
 | `hlt`                                  | Execution halted                                |
-| `br` dst: r/m/imm                      | `pc` = `dst`                                    |
-| `brl` dst: r/m/imm                     | `rp` = `pc` + size of opcode, then `pc` = `dst` |
+| `br` dst: r                            | `pc` = `dst`                                    |
+| `brl` dst: r                           | `rp` = `pc` + size of opcode, then `pc` = `dst` |
 | `bret`                                 | `pc` = `rp`                                     |
 | `beq` a: r/m, b: r/m/imm, dst: r/m/imm | Iff `a` = `b`, `pc` = `dst`                     |
 | `bne` a: r/m, b: r/m/imm, dst: r/m/imm | Iff `a` != `b`, `pc` = `dst`                    |
