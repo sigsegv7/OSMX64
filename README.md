@@ -16,6 +16,21 @@ Registers store data which can be accessed at any time. These include special re
 | `fp`       | 64 bits  | Frame pointer                       |
 | `ptp`      | 64 bits  | Page tree pointer                   |
 
+## Link Registers
+
+The link registers are for storing specific return addresses from a subroutine
+
+| Name       | Size     | Purpose                                           |
+| ---------- | -------- | ---------------------------
+| `blr`      | 64 bits  | Branch Link Register      |
+| `ilr`      | 64 bits  | Interrupt Link Register   |
+
+When calling a subroutine, it will need to know where to return to
+when the execution finishes. To achieve this, we use the branch link
+register (BLR). In situations where an interrupt has occurred on the
+system, the CPU would need to know where to return to from the interrupt
+context, in cases such as this, we'd use the Interrupt Link Register (ILR).
+
 ### Internal Registers
 
 Only accessed by the CPU for certain instructions. Cannot be directly read/written.
