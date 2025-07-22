@@ -46,7 +46,8 @@ cannot be accessed via the "mov" instruction and instead rely on independent wrs
 |------|---------------------- | ---------------------- |
 | 0    | Reserved              | Must be zero           |
 | 1    | Supervisor            | Supervisor mode enable |
-| 2-31 | Reserved (must be 0)  | Must be zero           |
+| 2    | Carry                 | Arithmetic carry flag  |
+| 3-31 | Reserved (must be 0)  | Must be zero           |
 
 
 #### Supervisor bit
@@ -55,6 +56,10 @@ and is therefore readonly in user contexts (writes ignored). It may be unset
 by system software to transition the processor into a user context. This bit
 may only transition from a 0 to a 1 during an interrupt/trap, therefore manually
 writing a 1 to this bit is ignored by the processor.
+
+#### Carry bit
+Indicates whether an arithmetic operation has resulted in a
+carry/borrow.
 
 ## Instructions
 
