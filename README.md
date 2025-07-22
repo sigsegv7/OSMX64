@@ -49,6 +49,12 @@ cannot be accessed via the "mov" instruction and instead rely on independent wrs
 | 2-31 | Reserved (must be 0)  | Must be zero           |
 
 
+#### Supervisor bit
+The supervisor bit may only be writable in a privileged mode of execution
+and is therefore readonly in user contexts (writes ignored). It may be unset
+by system software to transition the processor into a user context. This bit
+may only transition from a 0 to a 1 during an interrupt/trap, therefore manually
+writing a 1 to this bit is ignored by the processor.
 
 ## Instructions
 
