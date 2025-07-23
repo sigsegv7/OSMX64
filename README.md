@@ -94,11 +94,15 @@ and can be accessed through two special instructions.
 
 Bitwise logic operations can write to all registers except `v0`-`v7`, `x0` and `pc`. Can read from all registers except `v0`-`v7`.
 
-| Mnemonic                         | Effect                 |
-| -------------------------------- | ---------------------- |
-| `and` dst: r, reg: r, val: r/imm | `dst` = `dst` & `val`  |
-| `or` dst: r, reg: r, val: r/imm  | `dst` = `dst` \| `val` |
-| `xor` dst: r, reg: r, val: r/imm | `dst` = `dst` ^ `val`  |
+| Mnemonic                         | Effect                          |
+| -------------------------------- | ------------------------------- |
+| `and` dst: r, reg: r, val: r/imm | `dst` = `dst` & `val`           |
+| `or` dst: r, reg: r, val: r/imm  | `dst` = `dst` \| `val`          |
+| `xor` dst: r, reg: r, val: r/imm | `dst` = `dst` ^ `val`           |
+| `mrob` dst: r: mask [bit]: imm   | Fill byte of 'dst' with 'mask'  |
+| `mrow` dst: r: mask [bit]: imm   | Fill word of 'dst' with 'mask'  |
+| `mrod` dst: r: mask [bit]: imm   | Fill dword of 'dst' with 'mask' |
+| `mroq` dst: r: mask [bit]: imm   | Fill qword of 'dst' with 'mask' |
 
 #### Example
 ```
