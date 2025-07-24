@@ -194,5 +194,28 @@ mov x1, #3
 /* Iff x1 - x1 != 0, x1 equals 2 */
 ```
 
+### Opcode list
+
+- `NOP`: `0x00`
+- `ADD`: `0x01`
+- `SUB`: `0x02`
+- `MUL`: `0x03`
+- `DIV`: `0x04`
+- `INC`: `0x05`
+- `DEC`: `0x06`
+- `OR`:  `0x07`
+- `XOR`: `0x08`
+- `AND`: `0x09`
+- `NOT`: `0x0A`
+- `SLL`: `0x0B`
+- `SRL`: `0x0C`
+- `MOV_IMM`: `0x0D`
+- `HLT`: `0x0E`
+- `BR`: `0x0F`
+- `MROB`: `0x10`
+- `MROW`: `0x11`
+- `MROD`: `0x12`
+- `MROQ`: `0x13`
+
 Copyright (c) 2024 Quinn Stephens and Ian Marco Moffett.
 All rights reserved.
